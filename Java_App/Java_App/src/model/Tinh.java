@@ -1,0 +1,142 @@
+package model;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Objects;
+
+public class Tinh implements Serializable{
+	private int maITnh;
+	private String tenTinh;
+	
+	public int getMaITnh() {
+		return maITnh;
+	}
+
+	public void setMaITnh(int maITnh) {
+		this.maITnh = maITnh;
+	}
+
+	public String getTenTinh() {
+		return tenTinh;
+	}
+
+	public void setTenTinh(String tenTinh) {
+		this.tenTinh = tenTinh;
+	}
+
+	public Tinh(int maITnh, String tenTinh) {
+		this.maITnh = maITnh;
+		this.tenTinh = tenTinh;
+	}
+
+	@Override
+	public String toString() {
+		return "Tinh [maITnh=" + maITnh + ", tenTinh=" + tenTinh + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(maITnh, tenTinh);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tinh other = (Tinh) obj;
+		return maITnh == other.maITnh && Objects.equals(tenTinh, other.tenTinh);
+	}
+	
+	public static ArrayList<Tinh> getDSTinh() {
+		String[] arr_tinh = {"Hà Giang",
+							"Cao Bằng",
+							"Lào Cai",
+							"Sơn La",
+							"Lai Châu",
+							"Bắc Kạn",
+							"Lạng Sơn",
+							"Tuyên Quang",
+							"Yên Bái",
+							"Thái Nguyên",
+							"Điện Biên",
+							"Phú Thọ",
+							"Vĩnh Phúc",
+							"Bắc Giang",
+							"Bắc Ninh",
+							"Hà Nội",
+							"Quảng Ninh",
+							"Hải Dương",
+							"Hải Phòng",
+							"Hòa Bình",
+							"Hưng Yên",
+							"Hà Nam",
+							"Thái Bình",
+							"Nam Định",
+							"Ninh Bình",
+							"Thanh Hóa",
+							"Nghệ An",
+							"Hà Tĩnh",
+							"Quảng Bình",
+							"Quảng Trị",
+							"Thừa Thiên Huế",
+							"Đà Nẵng",
+							"Quảng Nam",
+							"Quảng Ngãi",
+							"Kon Tum",
+							"Gia Lai",
+							"Bình Định",
+							"Phú Yên",
+							"Đắk Lắk",
+							"Khánh Hòa",
+							"Đắk Nông",
+							"Lâm Đồng",
+							"Ninh Thuận",
+							"Bình Phước",
+							"Tây Ninh",
+							"Bình Dương",
+							"Đồng Nai",
+							"Bình Thuận",
+							"Thành phố Hồ Chí Minh",
+							"Long An",
+							"Bà Rịa – Vũng Tàu",
+							"Đồng Tháp",
+							"An Giang",
+							"Tiền Giang",
+							"Vĩnh Long",
+							"Bến Tre",
+							"Cần Thơ",
+							"Kiên Giang",
+							"Trà Vinh",
+							"Hậu Giang",
+							"Sóc Trăng",
+							"Bạc Liêu",
+							"Cà Mau",};
+		
+		ArrayList<Tinh> listTinh = new ArrayList<Tinh>();
+		int i = 0;
+		for (String tenTinh : arr_tinh) {
+			Tinh t = new Tinh(i, tenTinh);
+			listTinh.add(t); 
+		}
+		return listTinh;
+	}
+
+	public static Tinh getTinhByID(int queQuan) {
+		// TODO Auto-generated method stub
+		return Tinh.getDSTinh().get(queQuan);
+	}
+
+	public static Tinh getTinhByTen(String tenTinh) {
+		// TODO Auto-generated method stub
+		ArrayList<Tinh> listTinh = Tinh.getDSTinh();
+		for (Tinh tinh : listTinh) {
+			if (tinh.tenTinh.equals(tenTinh))
+				return tinh;
+		}
+		return null;
+	}
+}
